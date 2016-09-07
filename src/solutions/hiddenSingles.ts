@@ -1,12 +1,13 @@
 import {Solution} from "./solution";
-import {Sudoku, Tile} from "sudoku";
+import {ITile} from "sudoku";
+import {SolverSudoku} from "../solverSudoku";
 import {Linq} from "btypescript";
 
 export class HiddenSingles extends Solution {
 
     name = "HiddenSingles";
 
-    findClue(sudoku: Sudoku): boolean {
+    findClue(sudoku: SolverSudoku): boolean {
 
         for (let r = 0; r < 9; r++) {
             let row = Linq.where(this.getRow(sudoku, r), x => x.isEmpty());
@@ -29,7 +30,7 @@ export class HiddenSingles extends Solution {
         return false;
     }
 
-    checkHiddenSingles(tiles: Tile[]): boolean {
+    checkHiddenSingles(tiles: ITile[]): boolean {
         // first we just start with making sure all the tiles are not already filled.
         if (Linq.all(tiles, x => !x.isEmpty())) return false;
 
@@ -57,7 +58,7 @@ export class HiddenSingles extends Solution {
                     checkedNumbers.push(note);
                 } else {
                     // if not, then we found a hidden single, let's set it
-                    tiles[i].value = note;
+                    tiles[i].val = note;
 
                     // returning true let us break out of the .some
                     return true;

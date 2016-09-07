@@ -12,12 +12,12 @@ var Solver = (function () {
     }
     Solver.prototype.solvePuzzle = function (sudoku) {
         var tries = 0, usedSolutions = [];
-        sudoku.tiles.forEach(function (x) { x.notes = x.notes.map(function (x) { return true; }); });
+        sudoku.tiles.forEach(function (t) { t.notes.forEach(function (n) { return n.toggleValue(true); }); });
         while (!sudoku.isFinished() && tries++ < 100) {
             sudoku.updateInvalidNotes();
             for (var i = 0; i < this.solutions.length; i++) {
                 var availableSolution = this.solutions[i];
-                if (availableSolution.solution.findNumber(sudoku)) {
+                if (availableSolution.solution.findClue(sudoku)) {
                     usedSolutions.push(availableSolution);
                     break;
                 }

@@ -1,12 +1,13 @@
 import {Solution} from "./solution";
-import {Sudoku, Tile} from "sudoku";
+import {ITile} from "sudoku";
+import {SolverSudoku} from "../solverSudoku";
 import {Linq} from "btypescript";
 
 export class FullHouse extends Solution {
 
     name = "FullHouse";
 
-    findClue(sudoku: Sudoku): boolean {
+    findClue(sudoku: SolverSudoku): boolean {
 
         for (let r = 0; r < 9; r++) {
             let row = this.getRow(sudoku, r);
@@ -29,14 +30,14 @@ export class FullHouse extends Solution {
         return false;
     }
 
-    private checkFullHouse(tiles: Tile[]): boolean {
+    private checkFullHouse(tiles: ITile[]): boolean {
 
-        let house = Linq.filter(tiles, (x: Tile) => x.isEmpty());
+        let house = Linq.filter(tiles, (x: ITile) => x.isEmpty());
 
         if (house.length === 1) {
             let cell = house[0];
 
-            cell.value = Linq.except([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], tiles.map(x => x.value))[0];
+            cell.val = Linq.except([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], tiles.map(x => x.val))[0];
 
             return true;
         }

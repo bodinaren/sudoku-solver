@@ -1,7 +1,7 @@
 import { Solution } from "./solution";
-import { Sudoku } from "sudoku";
+import { SolverSudoku } from "../solverSudoku";
 export declare class FullHouse extends Solution {
     name: string;
-    findNumber(sudoku: Sudoku): boolean;
+    findClue(sudoku: SolverSudoku): boolean;
     private checkFullHouse(tiles);
 }

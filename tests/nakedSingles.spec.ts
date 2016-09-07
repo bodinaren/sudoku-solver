@@ -1,6 +1,7 @@
 /// <reference path="../typings/main.d.ts" />
 
 import {Sudoku, Tile} from "sudoku";
+import {SolverSudoku} from "../src/solverSudoku";
 import {NakedSingles} from "../src/solutions/nakedSingles";
 import {List} from "btypescript";
 import {expect} from 'chai';
@@ -22,12 +23,12 @@ describe("NakedSingles", function() {
         ];
 
         let nakedSingles = new NakedSingles();
-        let sudoku = new Sudoku().setupNormalSudoku(tiles);
+        let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
         
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
         expect(nakedSingles.findClue(sudoku)).to.eql(true);
-        expect(sudoku.tiles[0].value).to.eql(1);
+        expect(sudoku.tiles[0].val).to.eql(1);
     });
 
     it("- not found", function() {
@@ -44,11 +45,11 @@ describe("NakedSingles", function() {
         ];
 
         let nakedSingles = new NakedSingles();
-        let sudoku = new Sudoku().setupNormalSudoku(tiles);
+        let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
 
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
         expect(nakedSingles.findClue(sudoku)).to.eql(false);
-        expect(sudoku.tiles[0].value).to.eql(0);
+        expect(sudoku.tiles[0].val).to.eql(0);
     });
 });

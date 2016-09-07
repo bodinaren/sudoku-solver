@@ -2,7 +2,7 @@
 var Solution = (function () {
     function Solution() {
     }
-    Solution.prototype.findNumber = function (sudoku) {
+    Solution.prototype.findClue = function (sudoku) {
         return false;
     };
     Solution.prototype.getRow = function (sudoku, rowNr) {
@@ -30,7 +30,7 @@ var Solution = (function () {
         return region;
     };
     Solution.prototype.getNotes = function (tile) {
-        if (tile.value > 0)
+        if (tile.val > 0)
             return [];
         var notes = [];
         tile.getNotes().forEach(function (val, idx) {
@@ -40,7 +40,11 @@ var Solution = (function () {
         return notes;
     };
     Solution.prototype.toggleAllNotes = function (tiles) {
-        tiles.forEach(function (x) { x.notes = x.notes.map(function () { return true; }); });
+        tiles.forEach(function (t) {
+            t.notes.forEach(function (note) {
+                note.toggleValue(true);
+            });
+        });
     };
     return Solution;
 }());

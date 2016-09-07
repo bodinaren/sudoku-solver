@@ -12,13 +12,13 @@ var NakedSingles = (function (_super) {
         _super.apply(this, arguments);
         this.name = "NakedSingles";
     }
-    NakedSingles.prototype.findNumber = function (sudoku) {
+    NakedSingles.prototype.findClue = function (sudoku) {
         var _this = this;
-        var found = !new btypescript_1.Linq(sudoku.tiles).filter(function (x) { return x.value === 0; }).forEach(function (x) {
+        var found = !new btypescript_1.Linq(sudoku.tiles).filter(function (x) { return x.val === 0; }).forEach(function (x) {
             if (x.isEmpty()) {
                 var notes = _this.getNotes(x);
                 if (notes.length === 1) {
-                    x.value = notes[0];
+                    x.val = notes[0];
                     return false;
                 }
             }

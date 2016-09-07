@@ -1,6 +1,8 @@
 /// <reference path="../typings/main.d.ts" />
 
-import {Sudoku, Tile} from "sudoku";
+import {Tile} from "sudoku";
+import {SolverSudoku} from "../src/solverSudoku";
+import {Solution} from "../src/solutions/solution";
 import {FullHouse} from "../src/solutions/fullHouse";
 import {List} from "btypescript";
 import {expect} from 'chai';
@@ -22,10 +24,10 @@ describe("FullHouse", function() {
         ];
 
         let fullHouse = new FullHouse();
-        let sudoku = new Sudoku().setupNormalSudoku(tiles);
+        let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
 
         expect(fullHouse.findClue(sudoku)).to.eql(true);
-        expect(sudoku.tiles[5].value).to.eql(6);
+        expect(sudoku.tiles[5].val).to.eql(6);
     });
 
     it("- not found", function() {
@@ -42,10 +44,10 @@ describe("FullHouse", function() {
         ];
 
         let fullHouse = new FullHouse();
-        let sudoku = new Sudoku().setupNormalSudoku(tiles);
+        let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
 
         expect(fullHouse.findClue(sudoku)).to.eql(false);
-        expect(sudoku.tiles[2].value).to.eql(0);
-        expect(sudoku.tiles[5].value).to.eql(0);
+        expect(sudoku.tiles[2].val).to.eql(0);
+        expect(sudoku.tiles[5].val).to.eql(0);
     });
 });

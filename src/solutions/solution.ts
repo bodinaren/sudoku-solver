@@ -1,12 +1,14 @@
-import {Sudoku, Tile} from "sudoku";
+import {ITile} from "sudoku";
+import {SolverSudoku} from "../solverSudoku";
+import {List} from "btypescript";
 
 export class Solution {
 
-    findClue(sudoku: Sudoku): boolean {
+    findClue(sudoku: SolverSudoku): boolean {
         return false;
     }
 
-    getRow(sudoku: Sudoku, rowNr: number): Tile[] {
+    getRow(sudoku: SolverSudoku, rowNr: number): ITile[] {
         let row = [];
 
         for (let i = 0; i < 9; i++) {
@@ -16,7 +18,7 @@ export class Solution {
         return row;
     }
 
-    getColumn(sudoku: Sudoku, colNr: number): Tile[] {
+    getColumn(sudoku: SolverSudoku, colNr: number): ITile[] {
         let col = [];
 
         for (let i = 0; i < 9; i++) {
@@ -26,7 +28,7 @@ export class Solution {
         return col;
     }
 
-    getRegion(sudoku: Sudoku, regionNr: number): Tile[] {
+    getRegion(sudoku: SolverSudoku, regionNr: number): ITile[] {
         let region = [];
         let start = (regionNr % 3 * 3) + ((regionNr - regionNr % 3) * 9);
 
@@ -39,8 +41,8 @@ export class Solution {
         return region;
     }
 
-    getNotes(tile: Tile): number[] {
-        if (tile.value > 0) return [];
+    getNotes(tile: ITile): number[] {
+        if (tile.val > 0) return [];
 
         let notes = [];
 
@@ -51,7 +53,11 @@ export class Solution {
         return notes;
     }
 
-    toggleAllNotes(tiles: Tile[]) {
-        tiles.forEach(x => { x.notes = x.notes.map(() => true); });
+    toggleAllNotes(tiles: ITile[]) {
+        tiles.forEach(t => { 
+            t.notes.forEach((note) => {
+                note.toggleValue(true);
+            });
+        });
     }
 }

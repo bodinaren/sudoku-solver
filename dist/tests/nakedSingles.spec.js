@@ -1,5 +1,5 @@
 "use strict";
-var sudoku_1 = require("sudoku");
+var solverSudoku_1 = require("../src/solverSudoku");
 var nakedSingles_1 = require("../src/solutions/nakedSingles");
 var chai_1 = require('chai');
 var _ = 0;
@@ -17,11 +17,11 @@ describe("NakedSingles", function () {
             _, _, _, _, _, _, _, _, _
         ];
         var nakedSingles = new nakedSingles_1.NakedSingles();
-        var sudoku = new sudoku_1.Sudoku().setupNormalSudoku(tiles);
+        var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
-        chai_1.expect(nakedSingles.findNumber(sudoku)).to.eql(true);
-        chai_1.expect(sudoku.tiles[0].value).to.eql(1);
+        chai_1.expect(nakedSingles.findClue(sudoku)).to.eql(true);
+        chai_1.expect(sudoku.tiles[0].val).to.eql(1);
     });
     it("- not found", function () {
         var tiles = [
@@ -36,11 +36,11 @@ describe("NakedSingles", function () {
             _, _, _, _, _, _, _, _, _
         ];
         var nakedSingles = new nakedSingles_1.NakedSingles();
-        var sudoku = new sudoku_1.Sudoku().setupNormalSudoku(tiles);
+        var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
-        chai_1.expect(nakedSingles.findNumber(sudoku)).to.eql(false);
-        chai_1.expect(sudoku.tiles[0].value).to.eql(0);
+        chai_1.expect(nakedSingles.findClue(sudoku)).to.eql(false);
+        chai_1.expect(sudoku.tiles[0].val).to.eql(0);
     });
 });
 //# sourceMappingURL=nakedSingles.spec.js.map

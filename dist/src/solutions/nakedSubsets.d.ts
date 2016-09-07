@@ -1,7 +1,8 @@
 import { Solution } from "./solution";
-import { Sudoku, Tile } from "sudoku";
+import { SolverSudoku } from "../solverSudoku";
+import { ITile } from "sudoku";
 export declare class NakedSubsets extends Solution {
     name: string;
-    findNumber(sudoku: Sudoku): boolean;
-    checkNakedSubsets(tiles: Tile[]): boolean;
+    findClue(sudoku: SolverSudoku): boolean;
+    checkNakedSubsets(tiles: ITile[]): boolean;
 }

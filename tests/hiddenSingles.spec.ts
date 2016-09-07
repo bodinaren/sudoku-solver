@@ -1,6 +1,7 @@
 /// <reference path="../typings/main.d.ts" />
 
 import {Sudoku, Tile} from "sudoku";
+import {SolverSudoku} from "../src/solverSudoku";
 import {HiddenSingles} from "../src/solutions/hiddenSingles";
 import {List} from "btypescript";
 import {expect} from 'chai';
@@ -24,12 +25,12 @@ describe("HiddenSingles", function() {
         ];
 
         let nakedSingles = new HiddenSingles();
-        let sudoku = new Sudoku().setupNormalSudoku(tiles);
+        let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
         
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
         expect(nakedSingles.findClue(sudoku)).to.eql(true);
-        expect(sudoku.tiles[21].value).to.eql(6);
+        expect(sudoku.tiles[21].val).to.eql(6);
 
 
         // http://hodoku.sourceforge.net/en/show_example.php?file=h102&tech=Hidden+Single
@@ -48,11 +49,11 @@ describe("HiddenSingles", function() {
         ];
 
         nakedSingles = new HiddenSingles();
-        sudoku = new Sudoku().setupNormalSudoku(tiles);
+        sudoku = new SolverSudoku().setupNormalSudoku(tiles);
 
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
         expect(nakedSingles.findClue(sudoku)).to.eql(true);
-        expect(sudoku.tiles[30].value).to.eql(4);
+        expect(sudoku.tiles[30].val).to.eql(4);
     });
 });

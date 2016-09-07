@@ -12,7 +12,7 @@ var HiddenSingles = (function (_super) {
         _super.apply(this, arguments);
         this.name = "HiddenSingles";
     }
-    HiddenSingles.prototype.findNumber = function (sudoku) {
+    HiddenSingles.prototype.findClue = function (sudoku) {
         for (var r = 0; r < 9; r++) {
             var row = btypescript_1.Linq.where(this.getRow(sudoku, r), function (x) { return x.isEmpty(); });
             if (row.length > 0 && this.checkHiddenSingles(row))
@@ -48,7 +48,7 @@ var HiddenSingles = (function (_super) {
                     checkedNumbers.push(note);
                 }
                 else {
-                    tiles[i].value = note;
+                    tiles[i].val = note;
                     return true;
                 }
             });

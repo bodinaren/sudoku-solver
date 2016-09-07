@@ -1,7 +1,8 @@
 import { Solution } from "./solution";
-import { Sudoku, Tile } from "sudoku";
+import { ITile } from "sudoku";
+import { SolverSudoku } from "../solverSudoku";
 export declare class HiddenSingles extends Solution {
     name: string;
-    findNumber(sudoku: Sudoku): boolean;
-    checkHiddenSingles(tiles: Tile[]): boolean;
+    findClue(sudoku: SolverSudoku): boolean;
+    checkHiddenSingles(tiles: ITile[]): boolean;
 }

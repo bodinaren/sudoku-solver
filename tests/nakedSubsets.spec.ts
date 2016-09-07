@@ -1,6 +1,7 @@
 /// <reference path="../typings/main.d.ts" />
 
 import {Sudoku, Tile} from "sudoku";
+import {SolverSudoku} from "../src/solverSudoku";
 import {NakedSubsets} from "../src/solutions/nakedSubsets";
 import {List} from "btypescript";
 import {expect} from 'chai';
@@ -25,7 +26,7 @@ describe("NakedSubsets", function() {
             ];
 
             let nakedSubsets = new NakedSubsets();
-            let sudoku = new Sudoku().setupNormalSudoku(tiles);
+            let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
             
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
@@ -48,7 +49,7 @@ describe("NakedSubsets", function() {
             ];
 
             nakedSubsets = new NakedSubsets();
-            sudoku = new Sudoku().setupNormalSudoku(tiles);
+            sudoku = new SolverSudoku().setupNormalSudoku(tiles);
 
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
@@ -83,7 +84,7 @@ describe("NakedSubsets", function() {
             ];
 
             let nakedSubsets = new NakedSubsets();
-            let sudoku = new Sudoku().setupNormalSudoku(tiles);
+            let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
             
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
@@ -112,7 +113,7 @@ describe("NakedSubsets", function() {
             ];
 
             let nakedSubsets = new NakedSubsets();
-            let sudoku = new Sudoku().setupNormalSudoku(tiles);
+            let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
             
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();

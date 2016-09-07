@@ -1,9 +1,9 @@
-import { Sudoku } from "sudoku";
+import { SolverSudoku } from "./solverSudoku";
 import * as Solutions from "./solutions/solutions";
 export declare class Solver {
     private solutions;
     constructor();
-    solvePuzzle(sudoku: Sudoku): ISolvePuzzleResult;
+    solvePuzzle(sudoku: SolverSudoku): ISolvePuzzleResult;
 }
 export interface IAvailableSolution {
     solution: Solutions.Solution;

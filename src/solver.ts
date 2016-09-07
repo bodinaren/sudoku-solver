@@ -1,5 +1,5 @@
 import {Linq} from "btypescript";
-import {Sudoku, Tile} from "sudoku";
+import {SolverSudoku} from "./solverSudoku";
 import * as Solutions from "./solutions/solutions";
 
 export class Solver {
@@ -13,11 +13,11 @@ export class Solver {
 
     constructor() { }
 
-    solvePuzzle(sudoku: Sudoku): ISolvePuzzleResult {
+    solvePuzzle(sudoku: SolverSudoku): ISolvePuzzleResult {
         let tries = 0,
             usedSolutions: IAvailableSolution[] = [];
 
-        sudoku.tiles.forEach((x) => { x.notes = x.notes.map(x => true ); });
+        sudoku.tiles.forEach(t => { t.notes.forEach(n => n.toggleValue(true)); });
 
         while (!sudoku.isFinished() && tries++ < 100) {
             sudoku.updateInvalidNotes();

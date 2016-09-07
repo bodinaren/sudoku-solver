@@ -1,5 +1,5 @@
 "use strict";
-var sudoku_1 = require("sudoku");
+var solverSudoku_1 = require("../src/solverSudoku");
 var nakedSubsets_1 = require("../src/solutions/nakedSubsets");
 var chai_1 = require('chai');
 var _ = 0;
@@ -18,10 +18,10 @@ describe("NakedSubsets", function () {
                 5, _, _, _, _, 4, _, 1, _,
             ];
             var nakedSubsets = new nakedSubsets_1.NakedSubsets();
-            var sudoku = new sudoku_1.Sudoku().setupNormalSudoku(tiles);
+            var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
-            chai_1.expect(nakedSubsets.findNumber(sudoku)).to.eql(true);
+            chai_1.expect(nakedSubsets.findClue(sudoku)).to.eql(true);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[64])).to.eql([7]);
             tiles = [
                 6, 8, 7, _, _, 4, 5, 2, 3,
@@ -35,12 +35,12 @@ describe("NakedSubsets", function () {
                 _, 7, _, _, _, _, _, 6, 9
             ];
             nakedSubsets = new nakedSubsets_1.NakedSubsets();
-            sudoku = new sudoku_1.Sudoku().setupNormalSudoku(tiles);
+            sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
-            chai_1.expect(nakedSubsets.findNumber(sudoku)).to.eql(true);
-            chai_1.expect(nakedSubsets.findNumber(sudoku)).to.eql(true);
-            chai_1.expect(nakedSubsets.findNumber(sudoku)).to.eql(true);
+            chai_1.expect(nakedSubsets.findClue(sudoku)).to.eql(true);
+            chai_1.expect(nakedSubsets.findClue(sudoku)).to.eql(true);
+            chai_1.expect(nakedSubsets.findClue(sudoku)).to.eql(true);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[30])).to.eql([5]);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[39])).to.eql([1, 2, 4]);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[40])).to.eql([1, 2, 4]);
@@ -63,10 +63,10 @@ describe("NakedSubsets", function () {
                 4, _, _, _, _, _, 2, 9, 7
             ];
             var nakedSubsets = new nakedSubsets_1.NakedSubsets();
-            var sudoku = new sudoku_1.Sudoku().setupNormalSudoku(tiles);
+            var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
-            chai_1.expect(nakedSubsets.findNumber(sudoku)).to.eql(true);
+            chai_1.expect(nakedSubsets.findClue(sudoku)).to.eql(true);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[3])).to.eql([4, 5]);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[5])).to.eql([5, 8]);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[12])).to.eql([4, 7]);
@@ -87,10 +87,10 @@ describe("NakedSubsets", function () {
                 _, 4, _, 9, 6, 1, 2, 5, 3
             ];
             var nakedSubsets = new nakedSubsets_1.NakedSubsets();
-            var sudoku = new sudoku_1.Sudoku().setupNormalSudoku(tiles);
+            var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
-            chai_1.expect(nakedSubsets.findNumber(sudoku)).to.eql(true);
+            chai_1.expect(nakedSubsets.findClue(sudoku)).to.eql(true);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[1])).to.eql([1, 7]);
         });
     });

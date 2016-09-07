@@ -1,5 +1,5 @@
 "use strict";
-var sudoku_1 = require("sudoku");
+var solverSudoku_1 = require("../src/solverSudoku");
 var hiddenSingles_1 = require("../src/solutions/hiddenSingles");
 var chai_1 = require('chai');
 var _ = 0;
@@ -17,11 +17,11 @@ describe("HiddenSingles", function () {
             _, _, _, 3, _, _, 7, _, _
         ];
         var nakedSingles = new hiddenSingles_1.HiddenSingles();
-        var sudoku = new sudoku_1.Sudoku().setupNormalSudoku(tiles);
+        var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
-        chai_1.expect(nakedSingles.findNumber(sudoku)).to.eql(true);
-        chai_1.expect(sudoku.tiles[21].value).to.eql(6);
+        chai_1.expect(nakedSingles.findClue(sudoku)).to.eql(true);
+        chai_1.expect(sudoku.tiles[21].val).to.eql(6);
         tiles = [
             _, _, 2, 1, 9, 3, _, _, _,
             _, _, _, _, _, 7, _, _, _,
@@ -34,11 +34,11 @@ describe("HiddenSingles", function () {
             _, _, _, 5, 3, 4, 1, _, _
         ];
         nakedSingles = new hiddenSingles_1.HiddenSingles();
-        sudoku = new sudoku_1.Sudoku().setupNormalSudoku(tiles);
+        sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
-        chai_1.expect(nakedSingles.findNumber(sudoku)).to.eql(true);
-        chai_1.expect(sudoku.tiles[30].value).to.eql(4);
+        chai_1.expect(nakedSingles.findClue(sudoku)).to.eql(true);
+        chai_1.expect(sudoku.tiles[30].val).to.eql(4);
     });
 });
 //# sourceMappingURL=hiddenSingles.spec.js.map

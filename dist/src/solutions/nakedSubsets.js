@@ -12,7 +12,7 @@ var NakedSubsets = (function (_super) {
         _super.apply(this, arguments);
         this.name = "NakedSubsets";
     }
-    NakedSubsets.prototype.findNumber = function (sudoku) {
+    NakedSubsets.prototype.findClue = function (sudoku) {
         for (var r = 0; r < 9; r++) {
             var row = btypescript_1.Linq.where(this.getRow(sudoku, r), function (x) { return x.isEmpty(); });
             if (row.length > 0 && this.checkNakedSubsets(row))

@@ -1,9 +1,10 @@
-import { Sudoku, Tile } from "sudoku";
+import { ITile } from "sudoku";
+import { SolverSudoku } from "../solverSudoku";
 export declare class Solution {
-    findNumber(sudoku: Sudoku): boolean;
-    getRow(sudoku: Sudoku, rowNr: number): Tile[];
-    getColumn(sudoku: Sudoku, colNr: number): Tile[];
-    getRegion(sudoku: Sudoku, regionNr: number): Tile[];
-    getNotes(tile: Tile): number[];
-    toggleAllNotes(tiles: Tile[]): void;
+    findClue(sudoku: SolverSudoku): boolean;
+    getRow(sudoku: SolverSudoku, rowNr: number): ITile[];
+    getColumn(sudoku: SolverSudoku, colNr: number): ITile[];
+    getRegion(sudoku: SolverSudoku, regionNr: number): ITile[];
+    getNotes(tile: ITile): number[];
+    toggleAllNotes(tiles: ITile[]): void;
 }

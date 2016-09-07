@@ -1,5 +1,6 @@
 import {Solution} from "./solution";
-import {Sudoku, Tile} from "sudoku";
+import {SolverSudoku} from "../solverSudoku";
+import {ITile} from "sudoku";
 import {Linq} from "btypescript";
 
 export class NakedSubsets extends Solution {
@@ -8,7 +9,7 @@ export class NakedSubsets extends Solution {
 
     // TODO: If a subset is found, check if it's a locked subset (e.g. all tiles are within both a row/column and a region (can't be within a row and a column)).
 
-    findClue(sudoku: Sudoku): boolean {
+    findClue(sudoku: SolverSudoku): boolean {
 
         for (let r = 0; r < 9; r++) {
             let row = Linq.where(this.getRow(sudoku, r), x => x.isEmpty());
@@ -31,7 +32,7 @@ export class NakedSubsets extends Solution {
         return false;
     }
 
-    checkNakedSubsets(tiles: Tile[]) {
+    checkNakedSubsets(tiles: ITile[]) {
         let notes = [];
         
         for (let i = 0; i < tiles.length; i++) {
@@ -53,7 +54,7 @@ export class NakedSubsets extends Solution {
 
             if (outerNotes.length === sameTiles.length && outerNotes.length !== tiles.length) {
                 // naked subsets found
-                Linq.except(sameTiles, tiles).forEach((tile: Tile) => {
+                Linq.except(sameTiles, tiles).forEach(tile => {
                     outerNotes.forEach(note => {
                         if (this.getNotes(tile).indexOf(note) > -1) {
                             tile.setInvalidNote(note, true);
