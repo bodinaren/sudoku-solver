@@ -18,8 +18,8 @@
   "author": "Marcus Bodin <bodinaren@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "btypescript": "file:..\\btypescript",
-    "sudoku": "file:..\\sudoku"
+    "btypescript": "https://github.com/bodinaren/btypescript",
+    "sudoku": "https://github.com/bodinaren/sudoku#observers"
   },
   "devDependencies": {
     "browserify": "^13.0.1",
