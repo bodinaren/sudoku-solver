@@ -3,6 +3,12 @@ import {SolverSudoku} from "../solverSudoku";
 import {ITile} from "sudoku";
 import {Linq} from "btypescript";
 
+/**
+ * A naked subset is where x number of cells contains x number of notes.
+ * E.g. three cells might look like this: [1, 2, 3], [1, 2, 3], [1, 2, 3].
+ * NOTE: This only checks for cells that contains all x number of notes. For more complex naked subsets, e.g. [1, 2], [1, 3], [2, 3], see BrokenSubsets.
+ * @see BrokenSubsets
+ */
 export class NakedSubsets extends Solution {
 
     name = "NakedSubsets";
@@ -33,7 +39,7 @@ export class NakedSubsets extends Solution {
     }
 
     checkNakedSubsets(tiles: ITile[]) {
-        let notes = [];
+        let notes: number[][] = [];
         
         for (let i = 0; i < tiles.length; i++) {
             notes.push(this.getNotes(tiles[i]));

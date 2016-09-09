@@ -4,7 +4,7 @@ var nakedSubsets_1 = require("../src/solutions/nakedSubsets");
 var chai_1 = require('chai');
 var _ = 0;
 describe("NakedSubsets", function () {
-    describe("NakedPairs", function () {
+    describe("Pairs", function () {
         it("- found ", function () {
             var tiles = [
                 7, _, _, 8, 4, 9, _, 3, _,
@@ -49,7 +49,7 @@ describe("NakedSubsets", function () {
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[50])).to.eql([3, 5]);
         });
     });
-    describe("NakedTriple", function () {
+    describe("Triple", function () {
         it("- all tiles contains all notes", function () {
             var tiles = [
                 3, 9, _, _, _, _, 7, _, _,
@@ -73,25 +73,6 @@ describe("NakedSubsets", function () {
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[13])).to.eql([3, 7, 9]);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[14])).to.eql([3, 7, 8, 9]);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[23])).to.eql([8]);
-        });
-        it("- all tiles does not contain all notes", function () {
-            var tiles = [
-                _, _, _, 2, 9, 4, 3, 8, _,
-                _, _, _, 1, 7, 8, 6, 4, _,
-                4, 8, _, 3, 5, 6, 1, _, _,
-                _, _, 4, 8, 3, 7, 5, _, 1,
-                _, _, _, 4, 1, 5, 7, _, _,
-                5, _, _, 6, 2, 9, 8, 3, 4,
-                9, 5, 3, 7, 8, 2, 4, 1, 6,
-                1, 2, 6, 5, 4, 3, 9, 7, 8,
-                _, 4, _, 9, 6, 1, 2, 5, 3
-            ];
-            var nakedSubsets = new nakedSubsets_1.NakedSubsets();
-            var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
-            nakedSubsets.toggleAllNotes(sudoku.tiles);
-            sudoku.updateInvalidNotes();
-            chai_1.expect(nakedSubsets.findClue(sudoku)).to.eql(true);
-            chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[1])).to.eql([1, 7]);
         });
     });
 });

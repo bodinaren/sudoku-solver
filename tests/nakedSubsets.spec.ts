@@ -9,8 +9,8 @@ import {expect} from 'chai';
 let _ = 0;
 
 describe("NakedSubsets", function() {
-    describe("NakedPairs", function () {
-        it("- found ", function() {
+    describe("Pairs", function () {
+        it("- found 1", function() {
 
             // http://hodoku.sourceforge.net/en/show_example.php?file=n201&tech=Naked+Pair
             let tiles = [
@@ -35,8 +35,12 @@ describe("NakedSubsets", function() {
             expect(nakedSubsets.getNotes(sudoku.tiles[64])).to.eql([7]); // cleared
 
 
+            
+        });
+
+        it("- found 2", function () {
             // http://hodoku.sourceforge.net/en/show_example.php?file=n202&tech=Naked+Pair
-            tiles = [
+            let tiles = [
                 6, 8, 7, _, _, 4, 5, 2, 3,
                 9, 5, 3, _, _, 2, 6, 1, 4,
                 1, 4, 2, 3, 5, 6, 9, 7, 8,
@@ -48,8 +52,8 @@ describe("NakedSubsets", function() {
                 _, 7, _, _, _, _, _, 6, 9
             ];
 
-            nakedSubsets = new NakedSubsets();
-            sudoku = new SolverSudoku().setupNormalSudoku(tiles);
+            let nakedSubsets = new NakedSubsets();
+            let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
 
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
@@ -65,10 +69,10 @@ describe("NakedSubsets", function() {
             expect(nakedSubsets.getNotes(sudoku.tiles[48])).to.eql([4, 5, 6]); // cleared
             expect(nakedSubsets.getNotes(sudoku.tiles[49])).to.eql([3, 4, 6]); // cleared
             expect(nakedSubsets.getNotes(sudoku.tiles[50])).to.eql([3, 5]); // cleared
-        });
+        })
     });
 
-    describe("NakedTriple", function () {
+    describe("Triple", function () {
         it("- all tiles contains all notes", function () {
             // http://hodoku.sourceforge.net/en/show_example.php?file=n302&tech=Naked+Triple
             let tiles = [
@@ -97,29 +101,5 @@ describe("NakedSubsets", function() {
             expect(nakedSubsets.getNotes(sudoku.tiles[14])).to.eql([3, 7, 8, 9]); // cleared
             expect(nakedSubsets.getNotes(sudoku.tiles[23])).to.eql([8]); // cleared
         });
-
-        it("- all tiles does not contain all notes", function () {
-            // http://hodoku.sourceforge.net/en/show_example.php?file=n301&tech=Naked+Triple
-            let tiles = [
-                _, _, _, 2, 9, 4, 3, 8, _,
-                _, _, _, 1, 7, 8, 6, 4, _,
-                4, 8, _, 3, 5, 6, 1, _, _,
-                _, _, 4, 8, 3, 7, 5, _, 1,
-                _, _, _, 4, 1, 5, 7, _, _,
-                5, _, _, 6, 2, 9, 8, 3, 4,
-                9, 5, 3, 7, 8, 2, 4, 1, 6,
-                1, 2, 6, 5, 4, 3, 9, 7, 8,
-                _, 4, _, 9, 6, 1, 2, 5, 3
-            ];
-
-            let nakedSubsets = new NakedSubsets();
-            let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
-            
-            nakedSubsets.toggleAllNotes(sudoku.tiles);
-            sudoku.updateInvalidNotes();
-            
-            expect(nakedSubsets.findClue(sudoku)).to.eql(true);
-            expect(nakedSubsets.getNotes(sudoku.tiles[1])).to.eql([1, 7]); // cleared
-        })
     });
 });

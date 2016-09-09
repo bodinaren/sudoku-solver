@@ -1,6 +1,6 @@
 import {Linq} from "btypescript";
 import {SolverSudoku} from "./solverSudoku";
-import * as Solutions from "./solutions/solutions";
+import * as Solutions from "./solutions";
 
 export class Solver {
 

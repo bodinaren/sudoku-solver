@@ -8,7 +8,8 @@ export class Solution {
         return false;
     }
 
-    getRow(sudoku: SolverSudoku, rowNr: number): ITile[] {
+    getRow(sudoku: SolverSudoku, rowNr: number): ITile[] { return Solution.getRow(sudoku, rowNr); }
+    static getRow(sudoku: SolverSudoku, rowNr: number): ITile[] {
         let row = [];
 
         for (let i = 0; i < 9; i++) {
@@ -18,7 +19,8 @@ export class Solution {
         return row;
     }
 
-    getColumn(sudoku: SolverSudoku, colNr: number): ITile[] {
+    getColumn(sudoku: SolverSudoku, rowNr: number): ITile[] { return Solution.getColumn(sudoku, rowNr); }
+    static getColumn(sudoku: SolverSudoku, colNr: number): ITile[] {
         let col = [];
 
         for (let i = 0; i < 9; i++) {
@@ -28,7 +30,8 @@ export class Solution {
         return col;
     }
 
-    getRegion(sudoku: SolverSudoku, regionNr: number): ITile[] {
+    getRegion(sudoku: SolverSudoku, rowNr: number): ITile[] { return Solution.getRegion(sudoku, rowNr); }
+    static getRegion(sudoku: SolverSudoku, regionNr: number): ITile[] {
         let region = [];
         let start = (regionNr % 3 * 3) + ((regionNr - regionNr % 3) * 9);
 
@@ -41,7 +44,8 @@ export class Solution {
         return region;
     }
 
-    getNotes(tile: ITile): number[] {
+    getNotes(tile: ITile): number[] { return Solution.getNotes(tile); }
+    static getNotes(tile: ITile): number[] {
         if (tile.val > 0) return [];
 
         let notes = [];
@@ -53,7 +57,8 @@ export class Solution {
         return notes;
     }
 
-    toggleAllNotes(tiles: ITile[]) {
+    toggleAllNotes(tiles: ITile[]) { Solution.toggleAllNotes(tiles); }
+    static toggleAllNotes(tiles: ITile[]) {
         tiles.forEach(t => { 
             t.notes.forEach((note) => {
                 note.toggleValue(true);

@@ -1,6 +1,6 @@
 "use strict";
 var btypescript_1 = require("btypescript");
-var Solutions = require("./solutions/solutions");
+var Solutions = require("./solutions");
 var Solver = (function () {
     function Solver() {
         this.solutions = [

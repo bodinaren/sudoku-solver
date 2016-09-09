@@ -1,5 +1,5 @@
 import { SolverSudoku } from "./solverSudoku";
-import * as Solutions from "./solutions/solutions";
+import * as Solutions from "./solutions";
 export declare class Solver {
     private solutions;
     constructor();
