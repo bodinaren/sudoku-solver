@@ -6,3 +6,7 @@ export { NakedSubsets } from "./nakedSubsets";
 export { BrokenSubsets } from "./brokenSubsets";
 export { Intersections } from "./intersections";
 export { HiddenSubsets } from "./hiddenSubsets";
+export { Fish } from "./fish";
+export { XWing } from "./xwing";
+export { Swordfish } from "./swordfish";
+export { Jellyfish } from "./jellyfish";

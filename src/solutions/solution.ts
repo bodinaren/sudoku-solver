@@ -21,7 +21,7 @@ export class Solution {
         return row;
     }
 
-    getColumn(sudoku: SolverSudoku, rowNr: number): ITile[] { return Solution.getColumn(sudoku, rowNr); }
+    getColumn(sudoku: SolverSudoku, colNr: number): ITile[] { return Solution.getColumn(sudoku, colNr); }
     static getColumn(sudoku: SolverSudoku, colNr: number): ITile[] {
         let col = [];
 
@@ -32,7 +32,7 @@ export class Solution {
         return col;
     }
 
-    getRegion(sudoku: SolverSudoku, rowNr: number): ITile[] { return Solution.getRegion(sudoku, rowNr); }
+    getRegion(sudoku: SolverSudoku, regionNr: number): ITile[] { return Solution.getRegion(sudoku, regionNr); }
     static getRegion(sudoku: SolverSudoku, regionNr: number): ITile[] {
         let region = [];
         let start = (regionNr % 3 * 3) + ((regionNr - regionNr % 3) * 9);
@@ -67,4 +67,10 @@ export class Solution {
             });
         });
     }
+}
+
+export enum GroupTypes {
+    Row = 1,
+    Column = 2,
+    Region = 3
 }

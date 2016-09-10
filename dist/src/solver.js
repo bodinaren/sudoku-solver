@@ -14,6 +14,9 @@ var Solver = (function () {
             { solution: new Solutions.BrokenSubsets(4), points: 25 },
             { solution: new Solutions.HiddenSubsets(3), points: 30 },
             { solution: new Solutions.HiddenSubsets(4), points: 35 },
+            { solution: new Solutions.XWing(), points: 50 },
+            { solution: new Solutions.Swordfish(), points: 60 },
+            { solution: new Solutions.Jellyfish(), points: 70 },
         ];
     }
     Solver.prototype.solvePuzzle = function (sudoku) {

@@ -14,7 +14,7 @@ var Solution = (function () {
         }
         return row;
     };
-    Solution.prototype.getColumn = function (sudoku, rowNr) { return Solution.getColumn(sudoku, rowNr); };
+    Solution.prototype.getColumn = function (sudoku, colNr) { return Solution.getColumn(sudoku, colNr); };
     Solution.getColumn = function (sudoku, colNr) {
         var col = [];
         for (var i = 0; i < 9; i++) {
@@ -22,7 +22,7 @@ var Solution = (function () {
         }
         return col;
     };
-    Solution.prototype.getRegion = function (sudoku, rowNr) { return Solution.getRegion(sudoku, rowNr); };
+    Solution.prototype.getRegion = function (sudoku, regionNr) { return Solution.getRegion(sudoku, regionNr); };
     Solution.getRegion = function (sudoku, regionNr) {
         var region = [];
         var start = (regionNr % 3 * 3) + ((regionNr - regionNr % 3) * 9);
@@ -55,4 +55,10 @@ var Solution = (function () {
     return Solution;
 }());
 exports.Solution = Solution;
+(function (GroupTypes) {
+    GroupTypes[GroupTypes["Row"] = 1] = "Row";
+    GroupTypes[GroupTypes["Column"] = 2] = "Column";
+    GroupTypes[GroupTypes["Region"] = 3] = "Region";
+})(exports.GroupTypes || (exports.GroupTypes = {}));
+var GroupTypes = exports.GroupTypes;
 //# sourceMappingURL=solution.js.map
