@@ -15,17 +15,17 @@ var NakedSubsets = (function (_super) {
     NakedSubsets.prototype.findClue = function (sudoku) {
         for (var r = 0; r < 9; r++) {
             var row = btypescript_1.Linq.where(this.getRow(sudoku, r), function (x) { return x.isEmpty(); });
-            if (row.length > 0 && this.checkNakedSubsets(row))
+            if (row.length > 1 && this.checkNakedSubsets(row))
                 return true;
         }
         for (var c = 0; c < 9; c++) {
             var col = btypescript_1.Linq.where(this.getColumn(sudoku, c), function (x) { return x.isEmpty(); });
-            if (col.length > 0 && this.checkNakedSubsets(col))
+            if (col.length > 1 && this.checkNakedSubsets(col))
                 return true;
         }
         for (var reg = 0; reg < 9; reg++) {
             var region = btypescript_1.Linq.where(this.getRegion(sudoku, reg), function (x) { return x.isEmpty(); });
-            if (region.length > 0 && this.checkNakedSubsets(region))
+            if (region.length > 1 && this.checkNakedSubsets(region))
                 return true;
         }
         return false;

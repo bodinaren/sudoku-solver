@@ -1,6 +1,6 @@
 "use strict";
 var solverSudoku_1 = require("../src/solverSudoku");
-var nakedSingles_1 = require("../src/solutions/nakedSingles");
+var solutions_1 = require("../src/solutions");
 var chai_1 = require('chai');
 var _ = 0;
 describe("NakedSingles", function () {
@@ -16,7 +16,7 @@ describe("NakedSingles", function () {
             _, _, _, _, _, _, _, _, _,
             _, _, _, _, _, _, _, _, _
         ];
-        var nakedSingles = new nakedSingles_1.NakedSingles();
+        var nakedSingles = new solutions_1.NakedSingles();
         var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
@@ -35,7 +35,7 @@ describe("NakedSingles", function () {
             _, _, _, _, _, _, _, _, _,
             _, _, _, _, _, _, _, _, _
         ];
-        var nakedSingles = new nakedSingles_1.NakedSingles();
+        var nakedSingles = new solutions_1.NakedSingles();
         var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();

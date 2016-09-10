@@ -1,6 +1,6 @@
 "use strict";
 var solverSudoku_1 = require("../src/solverSudoku");
-var fullHouse_1 = require("../src/solutions/fullHouse");
+var solutions_1 = require("../src/solutions");
 var chai_1 = require('chai');
 var _ = 0;
 describe("FullHouse", function () {
@@ -16,7 +16,7 @@ describe("FullHouse", function () {
             _, _, _, _, _, _, _, _, _,
             _, _, _, _, _, _, _, _, _
         ];
-        var fullHouse = new fullHouse_1.FullHouse();
+        var fullHouse = new solutions_1.FullHouse();
         var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
         chai_1.expect(fullHouse.findClue(sudoku)).to.eql(true);
         chai_1.expect(sudoku.tiles[5].val).to.eql(6);
@@ -33,7 +33,7 @@ describe("FullHouse", function () {
             _, _, _, _, _, _, _, _, _,
             _, _, _, _, _, _, _, _, _
         ];
-        var fullHouse = new fullHouse_1.FullHouse();
+        var fullHouse = new solutions_1.FullHouse();
         var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
         chai_1.expect(fullHouse.findClue(sudoku)).to.eql(false);
         chai_1.expect(sudoku.tiles[2].val).to.eql(0);

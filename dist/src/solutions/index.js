@@ -11,4 +11,6 @@ var nakedSubsets_1 = require("./nakedSubsets");
 exports.NakedSubsets = nakedSubsets_1.NakedSubsets;
 var brokenSubsets_1 = require("./brokenSubsets");
 exports.BrokenSubsets = brokenSubsets_1.BrokenSubsets;
+var candidates_1 = require("./candidates");
+exports.Candidates = candidates_1.Candidates;
 //# sourceMappingURL=index.js.map

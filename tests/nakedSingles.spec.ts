@@ -2,7 +2,7 @@
 
 import {Sudoku, Tile} from "sudoku";
 import {SolverSudoku} from "../src/solverSudoku";
-import {NakedSingles} from "../src/solutions/nakedSingles";
+import {NakedSingles} from "../src/solutions";
 import {List} from "btypescript";
 import {expect} from 'chai';
 

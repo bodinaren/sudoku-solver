@@ -1,11 +1,11 @@
 "use strict";
 var solverSudoku_1 = require("../src/solverSudoku");
-var nakedSubsets_1 = require("../src/solutions/nakedSubsets");
+var solutions_1 = require("../src/solutions");
 var chai_1 = require('chai');
 var _ = 0;
 describe("NakedSubsets", function () {
     describe("Pairs", function () {
-        it("- found ", function () {
+        it("- found 1", function () {
             var tiles = [
                 7, _, _, 8, 4, 9, _, 3, _,
                 9, 2, 8, 1, 3, 5, _, _, 6,
@@ -17,13 +17,15 @@ describe("NakedSubsets", function () {
                 1, _, _, _, _, 8, _, 6, _,
                 5, _, _, _, _, 4, _, 1, _,
             ];
-            var nakedSubsets = new nakedSubsets_1.NakedSubsets();
+            var nakedSubsets = new solutions_1.NakedSubsets();
             var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
             chai_1.expect(nakedSubsets.findClue(sudoku)).to.eql(true);
             chai_1.expect(nakedSubsets.getNotes(sudoku.tiles[64])).to.eql([7]);
-            tiles = [
+        });
+        it("- found 2", function () {
+            var tiles = [
                 6, 8, 7, _, _, 4, 5, 2, 3,
                 9, 5, 3, _, _, 2, 6, 1, 4,
                 1, 4, 2, 3, 5, 6, 9, 7, 8,
@@ -34,8 +36,8 @@ describe("NakedSubsets", function () {
                 2, 3, _, _, _, _, _, 5, 7,
                 _, 7, _, _, _, _, _, 6, 9
             ];
-            nakedSubsets = new nakedSubsets_1.NakedSubsets();
-            sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
+            var nakedSubsets = new solutions_1.NakedSubsets();
+            var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
             chai_1.expect(nakedSubsets.findClue(sudoku)).to.eql(true);
@@ -62,7 +64,7 @@ describe("NakedSubsets", function () {
                 _, _, 2, 9, 4, _, 8, 6, 5,
                 4, _, _, _, _, _, 2, 9, 7
             ];
-            var nakedSubsets = new nakedSubsets_1.NakedSubsets();
+            var nakedSubsets = new solutions_1.NakedSubsets();
             var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();

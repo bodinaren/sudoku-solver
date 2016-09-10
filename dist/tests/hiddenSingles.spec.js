@@ -1,10 +1,10 @@
 "use strict";
 var solverSudoku_1 = require("../src/solverSudoku");
-var hiddenSingles_1 = require("../src/solutions/hiddenSingles");
+var solutions_1 = require("../src/solutions");
 var chai_1 = require('chai');
 var _ = 0;
 describe("HiddenSingles", function () {
-    it("- found ", function () {
+    it("- found 1", function () {
         var tiles = [
             _, 2, 8, _, _, 7, _, _, _,
             _, 1, 6, _, 8, 3, _, 7, _,
@@ -16,13 +16,15 @@ describe("HiddenSingles", function () {
             _, _, _, 8, 6, _, 1, 4, _,
             _, _, _, 3, _, _, 7, _, _
         ];
-        var nakedSingles = new hiddenSingles_1.HiddenSingles();
+        var nakedSingles = new solutions_1.HiddenSingles();
         var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
         chai_1.expect(nakedSingles.findClue(sudoku)).to.eql(true);
         chai_1.expect(sudoku.tiles[21].val).to.eql(6);
-        tiles = [
+    });
+    it("- found 2", function () {
+        var tiles = [
             _, _, 2, 1, 9, 3, _, _, _,
             _, _, _, _, _, 7, _, _, _,
             7, _, _, _, 4, _, _, 1, 9,
@@ -33,8 +35,8 @@ describe("HiddenSingles", function () {
             _, _, _, 6, _, _, _, _, _,
             _, _, _, 5, 3, 4, 1, _, _
         ];
-        nakedSingles = new hiddenSingles_1.HiddenSingles();
-        sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
+        var nakedSingles = new solutions_1.HiddenSingles();
+        var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
         chai_1.expect(nakedSingles.findClue(sudoku)).to.eql(true);

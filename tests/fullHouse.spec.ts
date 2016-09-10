@@ -2,8 +2,7 @@
 
 import {Tile} from "sudoku";
 import {SolverSudoku} from "../src/solverSudoku";
-import {Solution} from "../src/solutions/solution";
-import {FullHouse} from "../src/solutions/fullHouse";
+import {FullHouse} from "../src/solutions";
 import {List} from "btypescript";
 import {expect} from 'chai';
 

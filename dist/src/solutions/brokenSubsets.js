@@ -10,23 +10,23 @@ var BrokenSubsets = (function (_super) {
     __extends(BrokenSubsets, _super);
     function BrokenSubsets(numbers) {
         _super.call(this);
-        this.numbers = numbers;
         this.name = "BrokenSubsets";
+        this.numbers = numbers;
     }
     BrokenSubsets.prototype.findClue = function (sudoku) {
         for (var r = 0; r < 9; r++) {
             var row = btypescript_1.Linq.where(this.getRow(sudoku, r), function (x) { return x.isEmpty(); });
-            if (row.length > 0 && this.checkBrokenSubsets(row, this.numbers))
+            if (row.length > this.numbers && this.checkBrokenSubsets(row, this.numbers))
                 return true;
         }
         for (var c = 0; c < 9; c++) {
             var col = btypescript_1.Linq.where(this.getColumn(sudoku, c), function (x) { return x.isEmpty(); });
-            if (col.length > 0 && this.checkBrokenSubsets(col, this.numbers))
+            if (col.length > this.numbers && this.checkBrokenSubsets(col, this.numbers))
                 return true;
         }
         for (var reg = 0; reg < 9; reg++) {
             var region = btypescript_1.Linq.where(this.getRegion(sudoku, reg), function (x) { return x.isEmpty(); });
-            if (region.length > 0 && this.checkBrokenSubsets(region, this.numbers))
+            if (region.length > this.numbers && this.checkBrokenSubsets(region, this.numbers))
                 return true;
         }
         return false;

@@ -14,8 +14,12 @@ export class BrokenSubsets extends Solution {
 
     name = "BrokenSubsets";
 
-    constructor(private numbers: number) {
+    private numbers: number
+
+    constructor(numbers: number) {
         super();
+        
+        this.numbers = numbers;
     }
 
     // TODO: If a subset is found, check if it's a locked subset (e.g. all tiles are within both a row/column and a region (can't be within a row and a column)).
@@ -25,19 +29,19 @@ export class BrokenSubsets extends Solution {
         for (let r = 0; r < 9; r++) {
             let row = Linq.where(this.getRow(sudoku, r), x => x.isEmpty());
 
-            if (row.length > 0 && this.checkBrokenSubsets(row, this.numbers)) return true;
+            if (row.length > this.numbers && this.checkBrokenSubsets(row, this.numbers)) return true;
         }
 
         for (let c = 0; c < 9; c++) {
             let col = Linq.where(this.getColumn(sudoku, c), x => x.isEmpty());
 
-            if (col.length > 0 && this.checkBrokenSubsets(col, this.numbers)) return true;
+            if (col.length > this.numbers && this.checkBrokenSubsets(col, this.numbers)) return true;
         }
 
         for (let reg = 0; reg < 9; reg++) {
             let region = Linq.where(this.getRegion(sudoku, reg), x => x.isEmpty());
 
-            if (region.length > 0 && this.checkBrokenSubsets(region, this.numbers)) return true;
+            if (region.length > this.numbers && this.checkBrokenSubsets(region, this.numbers)) return true;
         }
 
         return false;
@@ -93,6 +97,3 @@ export class BrokenSubsets extends Solution {
         return undefined;
     }
 }
-
-// Start with the first cell and then see if there are any other cells that contains the same notes.
-// Check if the number of notes for these cells does not exceed 3. Continue to the next cell.

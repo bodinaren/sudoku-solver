@@ -27,7 +27,7 @@ describe("BrokenSubsets", function () {
         });
     });
     describe("Quadruple", function () {
-        it("- found", function () {
+        it("- found 1", function () {
             var tiles = [
                 _, 1, _, 7, 2, _, 5, 6, 3,
                 _, 5, 6, _, 3, _, 2, 4, 7,
@@ -43,11 +43,12 @@ describe("BrokenSubsets", function () {
             var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             brokenSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
-            var result = brokenSubsets.findClue(sudoku);
-            chai_1.expect(result).to.eql(true);
+            chai_1.expect(brokenSubsets.findClue(sudoku)).to.eql(true);
             chai_1.expect(brokenSubsets.getNotes(sudoku.tiles[69])).to.eql([6, 7]);
             chai_1.expect(brokenSubsets.getNotes(sudoku.tiles[70])).to.eql([2, 5, 7]);
-            tiles = [
+        });
+        it("- found 2", function () {
+            var tiles = [
                 5, 3, 2, 7, 8, 6, _, _, _,
                 9, 7, 8, 2, 4, 1, _, 6, _,
                 _, _, 1, 9, 5, 3, 2, 8, 7,
@@ -58,12 +59,11 @@ describe("BrokenSubsets", function () {
                 _, _, _, 8, _, 5, 1, _, 6,
                 _, _, _, 3, _, _, _, 9, 8
             ];
-            brokenSubsets = new solutions_1.BrokenSubsets(4);
-            sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
+            var brokenSubsets = new solutions_1.BrokenSubsets(4);
+            var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             brokenSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
-            result = brokenSubsets.findClue(sudoku);
-            chai_1.expect(result).to.eql(true);
+            chai_1.expect(brokenSubsets.findClue(sudoku)).to.eql(true);
             chai_1.expect(brokenSubsets.getNotes(sudoku.tiles[54])).to.eql([2, 3, 8]);
             chai_1.expect(brokenSubsets.getNotes(sudoku.tiles[55])).to.eql([5, 8]);
             chai_1.expect(brokenSubsets.getNotes(sudoku.tiles[63])).to.eql([2, 3]);

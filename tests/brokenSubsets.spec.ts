@@ -34,7 +34,8 @@ describe("BrokenSubsets", function() {
             let result = brokenSubsets.findClue(sudoku);
             
             expect(result).to.eql(true);
-            expect(brokenSubsets.getNotes(sudoku.tiles[1])).to.eql([1, 7]); // cleared
+
+            expect(brokenSubsets.getNotes(sudoku.tiles[1])).to.eql([1, 7]);
         });
     });
 
@@ -61,8 +62,9 @@ describe("BrokenSubsets", function() {
             sudoku.updateInvalidNotes();
 
             expect(brokenSubsets.findClue(sudoku)).to.eql(true);
-            expect(brokenSubsets.getNotes(sudoku.tiles[69])).to.eql([6, 7]); // cleared, was [3, 6, 7, 8]
-            expect(brokenSubsets.getNotes(sudoku.tiles[70])).to.eql([2, 5, 7]); // cleared, was [2, 5, 7, 9]
+
+            expect(brokenSubsets.getNotes(sudoku.tiles[69])).to.eql([6, 7]);
+            expect(brokenSubsets.getNotes(sudoku.tiles[70])).to.eql([2, 5, 7]);
         });
         it("- found 2", function () {
             // http://hodoku.sourceforge.net/en/show_example.php?file=n402&tech=Naked+Quadruple
@@ -86,11 +88,11 @@ describe("BrokenSubsets", function() {
             sudoku.updateInvalidNotes();
 
             expect(brokenSubsets.findClue(sudoku)).to.eql(true);
-            expect(brokenSubsets.getNotes(sudoku.tiles[54])).to.eql([2, 3, 8]); // cleared, was [2, 3, 4, 6, 8]
-            expect(brokenSubsets.getNotes(sudoku.tiles[55])).to.eql([5, 8]); // cleared, was [4, 5, 6, 8, 9]
-            expect(brokenSubsets.getNotes(sudoku.tiles[63])).to.eql([2, 3]); // cleared, was [2, 3, 4]
-            expect(brokenSubsets.getNotes(sudoku.tiles[72])).to.eql([1, 2]); // cleared, was [1, 2, 4, 6]
-            expect(brokenSubsets.getNotes(sudoku.tiles[73])).to.eql([1, 5]); // cleared, was [1, 4, 5, 6]
+            expect(brokenSubsets.getNotes(sudoku.tiles[54])).to.eql([2, 3, 8]);
+            expect(brokenSubsets.getNotes(sudoku.tiles[55])).to.eql([5, 8]);
+            expect(brokenSubsets.getNotes(sudoku.tiles[63])).to.eql([2, 3]);
+            expect(brokenSubsets.getNotes(sudoku.tiles[72])).to.eql([1, 2]);
+            expect(brokenSubsets.getNotes(sudoku.tiles[73])).to.eql([1, 5]);
         });
     });
 });

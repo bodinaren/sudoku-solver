@@ -20,19 +20,19 @@ export class NakedSubsets extends Solution {
         for (let r = 0; r < 9; r++) {
             let row = Linq.where(this.getRow(sudoku, r), x => x.isEmpty());
 
-            if (row.length > 0 && this.checkNakedSubsets(row)) return true;
+            if (row.length > 1 && this.checkNakedSubsets(row)) return true;
         }
 
         for (let c = 0; c < 9; c++) {
             let col = Linq.where(this.getColumn(sudoku, c), x => x.isEmpty());
 
-            if (col.length > 0 && this.checkNakedSubsets(col)) return true;
+            if (col.length > 1 && this.checkNakedSubsets(col)) return true;
         }
 
         for (let reg = 0; reg < 9; reg++) {
             let region = Linq.where(this.getRegion(sudoku, reg), x => x.isEmpty());
 
-            if (region.length > 0 && this.checkNakedSubsets(region)) return true;
+            if (region.length > 1 && this.checkNakedSubsets(region)) return true;
         }
 
         return false;

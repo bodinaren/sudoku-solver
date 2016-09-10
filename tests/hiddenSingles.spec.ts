@@ -2,14 +2,14 @@
 
 import {Sudoku, Tile} from "sudoku";
 import {SolverSudoku} from "../src/solverSudoku";
-import {HiddenSingles} from "../src/solutions/hiddenSingles";
+import {HiddenSingles} from "../src/solutions";
 import {List} from "btypescript";
 import {expect} from 'chai';
 
 let _ = 0;
 
 describe("HiddenSingles", function() {
-    it("- found ", function() {
+    it("- found 1", function() {
         
         // http://hodoku.sourceforge.net/en/show_example.php?file=h101&tech=Hidden+Single
         let tiles = [
@@ -31,12 +31,14 @@ describe("HiddenSingles", function() {
         sudoku.updateInvalidNotes();
         expect(nakedSingles.findClue(sudoku)).to.eql(true);
         expect(sudoku.tiles[21].val).to.eql(6);
+    });
 
+    it("- found 2", function () {
 
         // http://hodoku.sourceforge.net/en/show_example.php?file=h102&tech=Hidden+Single
-        // note that the 2nd example in the link above contains more than 1 hidden single
+        // note that the 2nd example in the link contains more than 1 hidden single
         // hence the expect in this test doesn't not match what the example from the site says 
-        tiles = [
+        let tiles = [
             _, _, 2, 1, 9, 3, _, _, _,
             _, _, _, _, _, 7, _, _, _,
             7, _, _, _, 4, _, _, 1, 9,
@@ -48,8 +50,8 @@ describe("HiddenSingles", function() {
             _, _, _, 5, 3, 4, 1, _, _
         ];
 
-        nakedSingles = new HiddenSingles();
-        sudoku = new SolverSudoku().setupNormalSudoku(tiles);
+        let nakedSingles = new HiddenSingles();
+        let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
 
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();

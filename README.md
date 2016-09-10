@@ -8,3 +8,7 @@ A solver of Sudoku puzzles using human techniques
 * Naked singles
 * Hidden singles
 * Naked subsets
+* Candidates
+
+## Credits
+I'd like to extend a thank you to http://hodoku.sourceforge.net/ for their detailed examples on these solving techniques. Their examples are used throughout the testsuite.

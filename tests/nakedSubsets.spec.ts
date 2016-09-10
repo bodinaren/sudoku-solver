@@ -2,7 +2,7 @@
 
 import {Sudoku, Tile} from "sudoku";
 import {SolverSudoku} from "../src/solverSudoku";
-import {NakedSubsets} from "../src/solutions/nakedSubsets";
+import {NakedSubsets} from "../src/solutions";
 import {List} from "btypescript";
 import {expect} from 'chai';
 
@@ -32,10 +32,7 @@ describe("NakedSubsets", function() {
             sudoku.updateInvalidNotes();
             
             expect(nakedSubsets.findClue(sudoku)).to.eql(true);
-            expect(nakedSubsets.getNotes(sudoku.tiles[64])).to.eql([7]); // cleared
-
-
-            
+            expect(nakedSubsets.getNotes(sudoku.tiles[64])).to.eql([7]);
         });
 
         it("- found 2", function () {
@@ -63,12 +60,12 @@ describe("NakedSubsets", function() {
             expect(nakedSubsets.findClue(sudoku)).to.eql(true);
             expect(nakedSubsets.findClue(sudoku)).to.eql(true);
 
-            expect(nakedSubsets.getNotes(sudoku.tiles[30])).to.eql([5]); // cleared
-            expect(nakedSubsets.getNotes(sudoku.tiles[39])).to.eql([1, 2, 4]); // cleared
-            expect(nakedSubsets.getNotes(sudoku.tiles[40])).to.eql([1, 2, 4]); // cleared
-            expect(nakedSubsets.getNotes(sudoku.tiles[48])).to.eql([4, 5, 6]); // cleared
-            expect(nakedSubsets.getNotes(sudoku.tiles[49])).to.eql([3, 4, 6]); // cleared
-            expect(nakedSubsets.getNotes(sudoku.tiles[50])).to.eql([3, 5]); // cleared
+            expect(nakedSubsets.getNotes(sudoku.tiles[30])).to.eql([5]);
+            expect(nakedSubsets.getNotes(sudoku.tiles[39])).to.eql([1, 2, 4]);
+            expect(nakedSubsets.getNotes(sudoku.tiles[40])).to.eql([1, 2, 4]);
+            expect(nakedSubsets.getNotes(sudoku.tiles[48])).to.eql([4, 5, 6]);
+            expect(nakedSubsets.getNotes(sudoku.tiles[49])).to.eql([3, 4, 6]);
+            expect(nakedSubsets.getNotes(sudoku.tiles[50])).to.eql([3, 5]);
         })
     });
 
@@ -94,12 +91,12 @@ describe("NakedSubsets", function() {
             sudoku.updateInvalidNotes();
             
             expect(nakedSubsets.findClue(sudoku)).to.eql(true);
-            expect(nakedSubsets.getNotes(sudoku.tiles[3])).to.eql([4, 5]); // cleared
-            expect(nakedSubsets.getNotes(sudoku.tiles[5])).to.eql([5, 8]); // cleared
-            expect(nakedSubsets.getNotes(sudoku.tiles[12])).to.eql([4, 7]); // cleared
-            expect(nakedSubsets.getNotes(sudoku.tiles[13])).to.eql([3, 7, 9]); // cleared
-            expect(nakedSubsets.getNotes(sudoku.tiles[14])).to.eql([3, 7, 8, 9]); // cleared
-            expect(nakedSubsets.getNotes(sudoku.tiles[23])).to.eql([8]); // cleared
+            expect(nakedSubsets.getNotes(sudoku.tiles[3])).to.eql([4, 5]);
+            expect(nakedSubsets.getNotes(sudoku.tiles[5])).to.eql([5, 8]);
+            expect(nakedSubsets.getNotes(sudoku.tiles[12])).to.eql([4, 7]);
+            expect(nakedSubsets.getNotes(sudoku.tiles[13])).to.eql([3, 7, 9]);
+            expect(nakedSubsets.getNotes(sudoku.tiles[14])).to.eql([3, 7, 8, 9]);
+            expect(nakedSubsets.getNotes(sudoku.tiles[23])).to.eql([8]);
         });
     });
 });
