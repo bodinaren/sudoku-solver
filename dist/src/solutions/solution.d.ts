@@ -1,6 +1,7 @@
 import { ITile } from "sudoku";
 import { SolverSudoku } from "../solverSudoku";
 export declare class Solution {
+    name: string;
     findClue(sudoku: SolverSudoku): boolean;
     getRow(sudoku: SolverSudoku, rowNr: number): ITile[];
     static getRow(sudoku: SolverSudoku, rowNr: number): ITile[];

@@ -69,7 +69,7 @@ export class HiddenSubsets extends Solution {
                     for (let note = 1; note <= 9; note++) {
                         if (newNotes.indexOf(note) === -1) {
                             if (this.getNotes(tile).indexOf(note) > -1) {
-                                tile.setInvalidNote(note, true);
+                                tile.toggleNote(note, false);
                                 wasHelpful = true;
                             }
                         }

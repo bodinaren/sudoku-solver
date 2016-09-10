@@ -9,6 +9,13 @@ export class Solver {
         { solution: new Solutions.NakedSingles(), points: 2 },
         { solution: new Solutions.HiddenSingles(), points: 3 },
         { solution: new Solutions.NakedSubsets(), points: 5 },
+
+        { solution: new Solutions.Intersections(), points: 10 },
+        { solution: new Solutions.BrokenSubsets(2), points: 15 },
+        { solution: new Solutions.BrokenSubsets(3), points: 20 },
+        { solution: new Solutions.BrokenSubsets(4), points: 25 },
+        { solution: new Solutions.HiddenSubsets(3), points: 30 },
+        { solution: new Solutions.HiddenSubsets(4), points: 35 },
     ];
 
     constructor() { }
@@ -19,7 +26,7 @@ export class Solver {
 
         sudoku.tiles.forEach(t => { t.notes.forEach(n => n.toggleValue(true)); });
 
-        while (!sudoku.isFinished() && tries++ < 100) {
+        while (!sudoku.isFinished() && tries++ < 200) {
             sudoku.updateInvalidNotes();
 
             for (let i = 0; i < this.solutions.length; i++) {
@@ -36,6 +43,17 @@ export class Solver {
         let points = Linq.sum(usedSolutions, (x) => x.points);
 
         return { tries: tries, solutions: usedSolutions, points: points };
+    }
+
+    printPuzzle(sudoku: SolverSudoku) {
+        console.log("");
+        for (let i = 0; i < 9; i++) {
+            let line = "";
+            for (let j = 0; j < 9; j++) {
+                line += sudoku.tiles[i * 9 + j].val.toString();
+            }
+            console.log(line);
+        }
     }
 }
 

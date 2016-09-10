@@ -53,7 +53,7 @@ var HiddenSubsets = (function (_super) {
                     for (var note = 1; note <= 9; note++) {
                         if (newNotes.indexOf(note) === -1) {
                             if (_this.getNotes(tile).indexOf(note) > -1) {
-                                tile.setInvalidNote(note, true);
+                                tile.toggleNote(note, false);
                                 wasHelpful_1 = true;
                             }
                         }

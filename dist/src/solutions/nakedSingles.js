@@ -5,7 +5,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var solution_1 = require("./solution");
-var btypescript_1 = require("btypescript");
 var NakedSingles = (function (_super) {
     __extends(NakedSingles, _super);
     function NakedSingles() {
@@ -13,18 +12,17 @@ var NakedSingles = (function (_super) {
         this.name = "NakedSingles";
     }
     NakedSingles.prototype.findClue = function (sudoku) {
-        var _this = this;
-        var found = !new btypescript_1.Linq(sudoku.tiles).filter(function (x) { return x.val === 0; }).forEach(function (x) {
-            if (x.isEmpty()) {
-                var notes = _this.getNotes(x);
+        for (var i = 0; i < 81; i++) {
+            var tile = sudoku.tiles[i];
+            if (tile.isEmpty()) {
+                var notes = this.getNotes(tile);
                 if (notes.length === 1) {
-                    x.val = notes[0];
-                    return false;
+                    tile.val = notes[0];
+                    return true;
                 }
             }
-            return true;
-        });
-        return found;
+        }
+        return false;
     };
     return NakedSingles;
 }(solution_1.Solution));

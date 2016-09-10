@@ -4,6 +4,8 @@ import {List} from "btypescript";
 
 export class Solution {
 
+    name = "Solution";
+
     findClue(sudoku: SolverSudoku): boolean {
         return false;
     }

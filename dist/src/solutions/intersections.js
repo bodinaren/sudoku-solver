@@ -56,7 +56,7 @@ var Intersections = (function (_super) {
                 secondary.forEach(function (tile) {
                     if (primary.indexOf(tile) === -1) {
                         if (_this.getNotes(tile).indexOf(num) > -1) {
-                            tile.setInvalidNote(num, true);
+                            tile.toggleNote(num, false);
                             wasHelpful_1 = true;
                         }
                     }

@@ -9,18 +9,18 @@ export class NakedSingles extends Solution {
 
     findClue(sudoku: SolverSudoku): boolean {
 
-        let found = !new Linq(sudoku.tiles).filter(x => x.val === 0).forEach(x => {
-            if (x.isEmpty()) {
-                let notes = this.getNotes(x);
-                
+        for (let i = 0; i < 81; i++) {
+            let tile = sudoku.tiles[i];
+
+            if (tile.isEmpty()) {
+                let notes = this.getNotes(tile);
                 if (notes.length === 1) {
-                    x.val = notes[0];
-                    return false;
+                    tile.val = notes[0];
+                    return true;
                 }
             }
-            return true;
-        });
+        }
 
-        return found;
+        return false;
     }
 }

@@ -61,7 +61,7 @@ export class BrokenSubsets extends Solution {
                 if (result.indexOf(tile) === -1) {
                     notes.forEach((note: number) => {
                         if (this.getNotes(tile).indexOf(note) > -1) {
-                            tile.setInvalidNote(note, true);
+                            tile.toggleNote(note, false);
                             wasHelpful = true;
                         }
                     });

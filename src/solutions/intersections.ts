@@ -60,7 +60,7 @@ export class Intersections extends Solution {
                 secondary.forEach(tile => {
                     if (primary.indexOf(tile) === -1) {
                         if (this.getNotes(tile).indexOf(num) > -1) {
-                            tile.setInvalidNote(num, true);
+                            tile.toggleNote(num, false);
                             wasHelpful = true;
                         }
                     }

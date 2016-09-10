@@ -51,7 +51,7 @@ var NakedSubsets = (function (_super) {
                 btypescript_1.Linq.except(sameTiles, tiles).forEach(function (tile) {
                     outerNotes.forEach(function (note) {
                         if (_this.getNotes(tile).indexOf(note) > -1) {
-                            tile.setInvalidNote(note, true);
+                            tile.toggleNote(note, false);
                             wasHelpful = true;
                         }
                     });

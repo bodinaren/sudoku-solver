@@ -43,7 +43,7 @@ var BrokenSubsets = (function (_super) {
                 if (result.indexOf(tile) === -1) {
                     notes_1.forEach(function (note) {
                         if (_this.getNotes(tile).indexOf(note) > -1) {
-                            tile.setInvalidNote(note, true);
+                            tile.toggleNote(note, false);
                             wasHelpful = true;
                         }
                     });

@@ -1,6 +1,7 @@
 "use strict";
 var Solution = (function () {
     function Solution() {
+        this.name = "Solution";
     }
     Solution.prototype.findClue = function (sudoku) {
         return false;

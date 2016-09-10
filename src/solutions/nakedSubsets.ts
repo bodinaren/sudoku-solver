@@ -63,7 +63,7 @@ export class NakedSubsets extends Solution {
                 Linq.except(sameTiles, tiles).forEach(tile => {
                     outerNotes.forEach(note => {
                         if (this.getNotes(tile).indexOf(note) > -1) {
-                            tile.setInvalidNote(note, true);
+                            tile.toggleNote(note, false);
                             wasHelpful = true;
                         }
                     });
