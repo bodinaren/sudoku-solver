@@ -4,5 +4,5 @@ export { NakedSingles } from "./nakedSingles";
 export { HiddenSingles } from "./hiddenSingles";
 export { NakedSubsets } from "./nakedSubsets";
 export { BrokenSubsets } from "./brokenSubsets";
-export { Candidates } from "./candidates";
+export { Intersections } from "./intersections";
 export { HiddenSubsets } from "./hiddenSubsets";

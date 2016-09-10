@@ -9,7 +9,7 @@ A solver of Sudoku puzzles using human techniques
 * Hidden singles
 * Naked subsets
 * Hidden subsets
-* Candidates
+* Intersections
 
 ## Credits
 I'd like to extend a thank you to http://hodoku.sourceforge.net/ for their detailed examples on these solving techniques. Their examples are used a lot throughout the testsuite. http://www.sudokuwiki.org/ is also featured in the tests.

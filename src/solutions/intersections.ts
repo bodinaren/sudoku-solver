@@ -3,34 +3,34 @@ import {SolverSudoku} from "../solverSudoku";
 import {ITile} from "sudoku";
 import {Linq, Numbers} from "btypescript";
 
-export class Candidates extends Solution {
+export class Intersections extends Solution {
 
-    name = "Candidates";
+    name = "Intersections";
 
     findClue(sudoku: SolverSudoku): boolean {
 
         for (let r = 0; r < 9; r++) {
             let row = Linq.where(this.getRow(sudoku, r), x => x.isEmpty());
 
-            if (row.length > 1 && this.checkCandidates(row, false, sudoku)) return true;
+            if (row.length > 1 && this.checkIntersections(row, false, sudoku)) return true;
         }
 
         for (let c = 0; c < 9; c++) {
             let col = Linq.where(this.getColumn(sudoku, c), x => x.isEmpty());
 
-            if (col.length > 1 && this.checkCandidates(col, false, sudoku)) return true;
+            if (col.length > 1 && this.checkIntersections(col, false, sudoku)) return true;
         }
 
         for (let reg = 0; reg < 9; reg++) {
             let region = Linq.where(this.getRegion(sudoku, reg), x => x.isEmpty());
 
-            if (region.length > 1 && this.checkCandidates(region, true, sudoku)) return true;
+            if (region.length > 1 && this.checkIntersections(region, true, sudoku)) return true;
         }
 
         return false;
     }
 
-    checkCandidates(tiles: ITile[], isRegion: boolean, sudoku: SolverSudoku) {
+    checkIntersections(tiles: ITile[], isRegion: boolean, sudoku: SolverSudoku) {
 
         let primary: ITile[];
         let secondary: ITile[];

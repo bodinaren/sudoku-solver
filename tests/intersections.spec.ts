@@ -2,13 +2,13 @@
 
 import {Sudoku, Tile} from "sudoku";
 import {SolverSudoku} from "../src/solverSudoku";
-import {Candidates} from "../src/solutions";
+import {Intersections} from "../src/solutions";
 import {List} from "btypescript";
 import {expect} from 'chai';
 
 let _ = 0;
 
-describe("Candidates", function() {
+describe("intersections", function() {
     describe("Pointing", function () {
         it("- found 1", function() {
 
@@ -25,7 +25,7 @@ describe("Candidates", function() {
                 6, 3, 8, _, _, 9, 7, 5, 1
             ];
 
-            let nakedSubsets = new Candidates();
+            let nakedSubsets = new Intersections();
             let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
             
             nakedSubsets.toggleAllNotes(sudoku.tiles);
@@ -50,7 +50,7 @@ describe("Candidates", function() {
                 _, _, _, 9, 2, 3, 7, 8, 5
             ];
 
-            let nakedSubsets = new Candidates();
+            let nakedSubsets = new Intersections();
             let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
 
             nakedSubsets.toggleAllNotes(sudoku.tiles);
@@ -83,7 +83,7 @@ describe("Candidates", function() {
                 _, _, _, _, 3, 9, 6, 4, 1
             ];
 
-            let nakedSubsets = new Candidates();
+            let nakedSubsets = new Intersections();
             let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
             
             nakedSubsets.toggleAllNotes(sudoku.tiles);
@@ -108,7 +108,7 @@ describe("Candidates", function() {
                 6, 4, 1, 9, 3, 2, 7, 5, 8
             ];
 
-            let nakedSubsets = new Candidates();
+            let nakedSubsets = new Intersections();
             let sudoku = new SolverSudoku().setupNormalSudoku(tiles);
             
             nakedSubsets.toggleAllNotes(sudoku.tiles);

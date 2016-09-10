@@ -3,7 +3,7 @@ var solverSudoku_1 = require("../src/solverSudoku");
 var solutions_1 = require("../src/solutions");
 var chai_1 = require('chai');
 var _ = 0;
-describe("Candidates", function () {
+describe("intersections", function () {
     describe("Pointing", function () {
         it("- found 1", function () {
             var tiles = [
@@ -17,7 +17,7 @@ describe("Candidates", function () {
                 4, 2, 7, 3, 5, 1, 8, 9, 6,
                 6, 3, 8, _, _, 9, 7, 5, 1
             ];
-            var nakedSubsets = new solutions_1.Candidates();
+            var nakedSubsets = new solutions_1.Intersections();
             var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
@@ -36,7 +36,7 @@ describe("Candidates", function () {
                 _, _, _, 6, _, 8, _, 9, _,
                 _, _, _, 9, 2, 3, 7, 8, 5
             ];
-            var nakedSubsets = new solutions_1.Candidates();
+            var nakedSubsets = new solutions_1.Intersections();
             var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
@@ -63,7 +63,7 @@ describe("Candidates", function () {
                 _, _, _, _, _, 7, 3, _, 5,
                 _, _, _, _, 3, 9, 6, 4, 1
             ];
-            var nakedSubsets = new solutions_1.Candidates();
+            var nakedSubsets = new solutions_1.Intersections();
             var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
@@ -82,7 +82,7 @@ describe("Candidates", function () {
                 2, 9, 7, 6, 8, 5, 3, 1, 4,
                 6, 4, 1, 9, 3, 2, 7, 5, 8
             ];
-            var nakedSubsets = new solutions_1.Candidates();
+            var nakedSubsets = new solutions_1.Intersections();
             var sudoku = new solverSudoku_1.SolverSudoku().setupNormalSudoku(tiles);
             nakedSubsets.toggleAllNotes(sudoku.tiles);
             sudoku.updateInvalidNotes();
@@ -96,4 +96,4 @@ describe("Candidates", function () {
         });
     });
 });
-//# sourceMappingURL=candidates.spec.js.map
+//# sourceMappingURL=intersections.spec.js.map

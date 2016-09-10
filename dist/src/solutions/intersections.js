@@ -6,31 +6,31 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var solution_1 = require("./solution");
 var btypescript_1 = require("btypescript");
-var Candidates = (function (_super) {
-    __extends(Candidates, _super);
-    function Candidates() {
+var Intersections = (function (_super) {
+    __extends(Intersections, _super);
+    function Intersections() {
         _super.apply(this, arguments);
-        this.name = "Candidates";
+        this.name = "Intersections";
     }
-    Candidates.prototype.findClue = function (sudoku) {
+    Intersections.prototype.findClue = function (sudoku) {
         for (var r = 0; r < 9; r++) {
             var row = btypescript_1.Linq.where(this.getRow(sudoku, r), function (x) { return x.isEmpty(); });
-            if (row.length > 1 && this.checkCandidates(row, false, sudoku))
+            if (row.length > 1 && this.checkIntersections(row, false, sudoku))
                 return true;
         }
         for (var c = 0; c < 9; c++) {
             var col = btypescript_1.Linq.where(this.getColumn(sudoku, c), function (x) { return x.isEmpty(); });
-            if (col.length > 1 && this.checkCandidates(col, false, sudoku))
+            if (col.length > 1 && this.checkIntersections(col, false, sudoku))
                 return true;
         }
         for (var reg = 0; reg < 9; reg++) {
             var region = btypescript_1.Linq.where(this.getRegion(sudoku, reg), function (x) { return x.isEmpty(); });
-            if (region.length > 1 && this.checkCandidates(region, true, sudoku))
+            if (region.length > 1 && this.checkIntersections(region, true, sudoku))
                 return true;
         }
         return false;
     };
-    Candidates.prototype.checkCandidates = function (tiles, isRegion, sudoku) {
+    Intersections.prototype.checkIntersections = function (tiles, isRegion, sudoku) {
         var _this = this;
         var primary;
         var secondary;
@@ -70,7 +70,7 @@ var Candidates = (function (_super) {
             if (typeof state_1 === "object") return state_1.value;
         }
     };
-    return Candidates;
+    return Intersections;
 }(solution_1.Solution));
-exports.Candidates = Candidates;
-//# sourceMappingURL=candidates.js.map
+exports.Intersections = Intersections;
+//# sourceMappingURL=intersections.js.map
