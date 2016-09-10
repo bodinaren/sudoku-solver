@@ -4,7 +4,7 @@ var solutions_1 = require("../src/solutions");
 var chai_1 = require('chai');
 var _ = 0;
 describe("NakedSubsets", function () {
-    describe("Pairs", function () {
+    describe("Pair", function () {
         it("- found 1", function () {
             var tiles = [
                 7, _, _, 8, 4, 9, _, 3, _,

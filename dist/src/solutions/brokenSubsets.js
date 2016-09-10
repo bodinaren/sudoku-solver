@@ -16,24 +16,24 @@ var BrokenSubsets = (function (_super) {
     BrokenSubsets.prototype.findClue = function (sudoku) {
         for (var r = 0; r < 9; r++) {
             var row = btypescript_1.Linq.where(this.getRow(sudoku, r), function (x) { return x.isEmpty(); });
-            if (row.length > this.numbers && this.checkBrokenSubsets(row, this.numbers))
+            if (row.length > this.numbers && this.checkBrokenSubsets(row))
                 return true;
         }
         for (var c = 0; c < 9; c++) {
             var col = btypescript_1.Linq.where(this.getColumn(sudoku, c), function (x) { return x.isEmpty(); });
-            if (col.length > this.numbers && this.checkBrokenSubsets(col, this.numbers))
+            if (col.length > this.numbers && this.checkBrokenSubsets(col))
                 return true;
         }
         for (var reg = 0; reg < 9; reg++) {
             var region = btypescript_1.Linq.where(this.getRegion(sudoku, reg), function (x) { return x.isEmpty(); });
-            if (region.length > this.numbers && this.checkBrokenSubsets(region, this.numbers))
+            if (region.length > this.numbers && this.checkBrokenSubsets(region))
                 return true;
         }
         return false;
     };
-    BrokenSubsets.prototype.checkBrokenSubsets = function (tiles, numbers) {
+    BrokenSubsets.prototype.checkBrokenSubsets = function (tiles) {
         var _this = this;
-        var result = this._iterate([], tiles, numbers);
+        var result = this._iterate([], tiles);
         var wasHelpful = false;
         if (result) {
             var allNotes_1 = [];
@@ -52,7 +52,7 @@ var BrokenSubsets = (function (_super) {
         }
         return (wasHelpful);
     };
-    BrokenSubsets.prototype._iterate = function (tiles, tilesLeft, numbers) {
+    BrokenSubsets.prototype._iterate = function (tiles, tilesLeft) {
         var _this = this;
         var _loop_1 = function(i) {
             var tile = tilesLeft[i];
@@ -60,12 +60,12 @@ var BrokenSubsets = (function (_super) {
             var allNotes = [];
             tiles.concat(tile).forEach(function (t) { Array.prototype.push.apply(allNotes, _this.getNotes(t)); });
             var sumNotes = btypescript_1.Linq.distinct(allNotes);
-            if (sumNotes.length <= numbers) {
-                if (sumNotes.length === numbers && tiles.length + 1 === numbers) {
+            if (sumNotes.length <= this_1.numbers) {
+                if (sumNotes.length === this_1.numbers && tiles.length + 1 === this_1.numbers) {
                     return { value: tiles.concat([tile]) };
                 }
                 else {
-                    var rs = this_1._iterate(tiles.concat([tile]), tilesLeft.slice(i + 1), numbers);
+                    var rs = this_1._iterate(tiles.concat([tile]), tilesLeft.slice(i + 1));
                     if (rs)
                         return { value: rs };
                 }

@@ -9,7 +9,7 @@ import {expect} from 'chai';
 let _ = 0;
 
 describe("NakedSubsets", function() {
-    describe("Pairs", function () {
+    describe("Pair", function () {
         it("- found 1", function() {
 
             // http://hodoku.sourceforge.net/en/show_example.php?file=n201&tech=Naked+Pair

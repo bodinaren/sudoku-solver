@@ -29,6 +29,7 @@ describe("HiddenSingles", function() {
         
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
+
         expect(nakedSingles.findClue(sudoku)).to.eql(true);
         expect(sudoku.tiles[21].val).to.eql(6);
     });
@@ -55,6 +56,7 @@ describe("HiddenSingles", function() {
 
         nakedSingles.toggleAllNotes(sudoku.tiles);
         sudoku.updateInvalidNotes();
+        
         expect(nakedSingles.findClue(sudoku)).to.eql(true);
         expect(sudoku.tiles[30].val).to.eql(4);
     });

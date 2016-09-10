@@ -13,4 +13,6 @@ var brokenSubsets_1 = require("./brokenSubsets");
 exports.BrokenSubsets = brokenSubsets_1.BrokenSubsets;
 var candidates_1 = require("./candidates");
 exports.Candidates = candidates_1.Candidates;
+var hiddenSubsets_1 = require("./hiddenSubsets");
+exports.HiddenSubsets = hiddenSubsets_1.HiddenSubsets;
 //# sourceMappingURL=index.js.map

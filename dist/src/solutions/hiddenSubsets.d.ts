@@ -1,11 +1,11 @@
 import { Solution } from "./solution";
 import { SolverSudoku } from "../solverSudoku";
 import { ITile } from "sudoku";
-export declare class BrokenSubsets extends Solution {
+export declare class HiddenSubsets extends Solution {
     name: string;
     private numbers;
     constructor(numbers: number);
     findClue(sudoku: SolverSudoku): boolean;
-    checkBrokenSubsets(tiles: ITile[]): boolean;
-    private _iterate(tiles, tilesLeft);
+    checkHiddenSubset(tiles: ITile[]): any;
+    private _iterate(allTiles, tiles, notes, start);
 }

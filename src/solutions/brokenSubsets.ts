@@ -29,27 +29,27 @@ export class BrokenSubsets extends Solution {
         for (let r = 0; r < 9; r++) {
             let row = Linq.where(this.getRow(sudoku, r), x => x.isEmpty());
 
-            if (row.length > this.numbers && this.checkBrokenSubsets(row, this.numbers)) return true;
+            if (row.length > this.numbers && this.checkBrokenSubsets(row)) return true;
         }
 
         for (let c = 0; c < 9; c++) {
             let col = Linq.where(this.getColumn(sudoku, c), x => x.isEmpty());
 
-            if (col.length > this.numbers && this.checkBrokenSubsets(col, this.numbers)) return true;
+            if (col.length > this.numbers && this.checkBrokenSubsets(col)) return true;
         }
 
         for (let reg = 0; reg < 9; reg++) {
             let region = Linq.where(this.getRegion(sudoku, reg), x => x.isEmpty());
 
-            if (region.length > this.numbers && this.checkBrokenSubsets(region, this.numbers)) return true;
+            if (region.length > this.numbers && this.checkBrokenSubsets(region)) return true;
         }
 
         return false;
     }
 
-    checkBrokenSubsets(tiles: ITile[], numbers: number) {
+    checkBrokenSubsets(tiles: ITile[]) {
         
-        let result = this._iterate([], tiles, numbers);
+        let result = this._iterate([], tiles);
         let wasHelpful = false;
 
         if (result) {
@@ -72,7 +72,7 @@ export class BrokenSubsets extends Solution {
         return (wasHelpful);
     }
 
-    private _iterate(tiles: ITile[], tilesLeft: ITile[], numbers: number): ITile[] {
+    private _iterate(tiles: ITile[], tilesLeft: ITile[]): ITile[] {
 
         for (let i = 0; i < tilesLeft.length; i++) {
             // get the next tile and the notes for it
@@ -84,11 +84,11 @@ export class BrokenSubsets extends Solution {
             tiles.concat(tile).forEach(t => { Array.prototype.push.apply(allNotes, this.getNotes(t)); });
             let sumNotes = Linq.distinct(allNotes);
 
-            if (sumNotes.length <= numbers) {
-                if (sumNotes.length === numbers && tiles.length + 1 === numbers) {
+            if (sumNotes.length <= this.numbers) {
+                if (sumNotes.length === this.numbers && tiles.length + 1 === this.numbers) {
                     return tiles.concat([tile]);
                 } else {
-                    let rs = this._iterate(tiles.concat([tile]), tilesLeft.slice(i + 1), numbers);
+                    let rs = this._iterate(tiles.concat([tile]), tilesLeft.slice(i + 1));
                     if (rs) return rs;
                 }
             }
